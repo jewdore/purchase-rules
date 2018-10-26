@@ -1,10 +1,10 @@
       function getInfo(email_body) {
 
-        var d=email_body.replace(/(\r\n)|(\n)/g,'');
+        var d=d.replace(/(\r\n)|(\n)/g,'');
 
         var object = {};
 
-        var img = /img\s*src=\"(.*?)\".*?alt=\"(.*?)\"/.exec(d)
+        var img = /img\s*src=[.\r\n]*\"(.*?)\".*?alt=\"(.*?)\"/.exec(d)
 
         if(img && img.length > 2){
           object['icon'] = img[1] 
