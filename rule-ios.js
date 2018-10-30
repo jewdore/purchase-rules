@@ -1,4 +1,4 @@
-      function getInfo(email_body) {
+      function getInfo(email_body, callback) {
 
         var d=email_body.replace(/(\r\n)|(\n)/g,'');
 
@@ -19,12 +19,12 @@
         }
 
         
-        var money = /<span\s+style=\"font-weight:600;white-space:nowrap\">(.{1})(.*?)<\/span>/.exec(d)
+        var money = /<span\s+style=\"font-weight:600;white-space:nowrap\">([^0-9]+)(.*?)<\/span>/.exec(d)
 
         if(money && money.length > 2){
           object['money_unit'] = money[1] 
           object['money'] = money[2]
         }
-        
-        block(JSON.stringify(object))
+
+        callback(JSON.stringify(object))
       }
