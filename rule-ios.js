@@ -4,7 +4,7 @@
 
         var object = {};
 
-        var img = /img\s*src=[\s\S]+?\"(.*?)\"[\s\S]+?alt=\"(.*?)\"/.exec(d)
+        var img = /img\s*src=[\s\S]*?\"(.*?)\"[\s\S]+?alt=\"(.*?)\"/.exec(d)
 
         if(img && img.length > 2){
           object['icon'] = img[1] 
@@ -19,7 +19,7 @@
         }
 
         
-        var money = /<span\s+style=\"font-weight:600;white-space:nowrap\">([^0-9]+)(.*?)<\/span>/.exec(d)
+        var money = /<span\s+style=\"font-weight:600;\s*?white-space:nowrap\">([^0-9]+)(.*?)<\/span>/.exec(d)
 
         if(money && money.length > 2){
           object['money_unit'] = money[1] 
